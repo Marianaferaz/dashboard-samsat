@@ -288,7 +288,7 @@ def process_df(raw) -> tuple:
             except Exception:
                 df[col] = 0
 
-    tgl_candidates = ["TGL_BAYAR", "TGL_DAFTAR", "TGL_PENETAPAN"]
+    df = pd.read_excel("laporan_pajak/data_pkb_clean.xlsx")
     kolom_tgl = next((c for c in tgl_candidates if c in df.columns), None)
     if not kolom_tgl:
         kolom_tgl = next((c for c in df.columns if "TGL" in c or "TANGGAL" in c), None)
